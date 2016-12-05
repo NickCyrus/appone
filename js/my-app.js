@@ -22,6 +22,7 @@ var strImgBase64
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64; 
             
+            jQuery(imgProfile).draggable()
            // setTimeout(capturaScreen, 1000);
             
     }
