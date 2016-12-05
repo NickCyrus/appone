@@ -1,3 +1,8 @@
+$(document).on('pagebeforeshow', '#index', function(){       
+    
+});
+
+
 /iPad|iPhone|Android/.test( navigator.userAgent ) && (function( $ ) {
 
 var proto =  $.ui.mouse.prototype,
@@ -79,7 +84,8 @@ var strImgBase64
             var imgProfile = document.getElementById(IdElementImg);
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
-            imgProfile.src = strImgBase64; 
+            imgProfile.src = strImgBase64;
+            alert(jQuery('#'+IdElementImg));
             jQuery('#'+IdElementImg).draggable()
            // setTimeout(capturaScreen, 1000);
              
