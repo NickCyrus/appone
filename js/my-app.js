@@ -16,15 +16,21 @@ var strImgBase64
         destinationType = navigator.camera.DestinationType;
     }
 
+    function createImagen(){
+        var ID =  'IMG-'+getRandom(0,999999999999);
+        $('#content-area').append('<img id="'+ID+'" style="display:none"/>');
+        return ID;
+    }
+    
     function onPhotoDataSuccess(imageURI) { 
-            var imgProfile = document.getElementById('smallImage');
+            var IdElementImg = createImagen();
+            var imgProfile = document.getElementById(IdElementImg);
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64; 
-            
-            jQuery(imgProfile).draggable()
+            $('#'+IdElementImg).draggable()
            // setTimeout(capturaScreen, 1000);
-            
+             
     }
      
     function capturePhoto() {

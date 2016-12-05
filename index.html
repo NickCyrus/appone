@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="css/my-app.css"> 
     
     <script type="text/javascript" src="cordova.js"></script>  
-    <script type="text/javascript" src="jquery-1.12.4.js"></script>
-    <script type="text/javascript" src="jquery-ui.min.js"></script>
-    <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/move.js"></script>
     <!-- Path to your custom app styles-->
     
@@ -55,9 +54,9 @@
           <!-- Page, data-page contains page name-->
           <div data-page="index" class="page">
             <!-- Scrollable page content-->
-            <div class="page-content" >
-                <div id="content-area"></div>
-                    
+            <div class="page-content" id="content-area">
+                
+                     
                     <img id="smallImage" src="img/img.jpg" class="add-image" />
               
                     
@@ -69,7 +68,7 @@
         <div class="toolbar-inner">
                 <a href="#view-1" data-panel="left" class="tab-link open-panel">  <i class="icon fa fa-magic"></i><span class="tabbar-label">Plantillas</span></a>
                 <a href="#" onclick="capturePhoto();" class="tab-link">  <i class="icon fa fa-camera"></i><span class="tabbar-label">Camara</span></a>
-                <a href="#view-1" class="tab-link">  <i class="icon fa fa-picture-o"></i><span class="tabbar-label">Galería</span></a>
+                <a href="#" onclick="createImagen()" class="tab-link">  <i class="icon fa fa-picture-o"></i><span class="tabbar-label">Galería</span></a>
         </div>
       </div>
       </div>
