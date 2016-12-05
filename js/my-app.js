@@ -1,5 +1,5 @@
 $(document).on('pagebeforeshow', '#index', function(){       
-    $('#img').draggable();
+    $('.move').draggable();
 });
 
 
@@ -75,7 +75,7 @@ var strImgBase64
 
     function createImagen(){
         var ID =  'IMG-'+getRandom(0,999999999999);
-        $('#content-area').append('<img id="'+ID+'" style="display:none" class="add-image"/>');
+        $('#content-area').append('<img id="'+ID+'" style="display:none" class="add-image move"/>');
         return ID;
     }
     
@@ -85,7 +85,7 @@ var strImgBase64
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64;
-             
+            alert(IdElementImg); 
             jQuery('#'+IdElementImg).draggable()
            // setTimeout(capturaScreen, 1000);
              
@@ -125,5 +125,5 @@ var strImgBase64
     }
 
     function getRandom(min, max) { 
-        return Math.random() * (max - min) + min;
+       return Math.floor(Math.random()*(max-min+1)+min);
     }
