@@ -1,5 +1,17 @@
+var currentID = 0
+
 $(document).on('pagebeforeshow', '#index', function(){       
-    $('.move').draggable();
+    $('.move').draggable({
+        drag: function( event, ui ) {
+            $(ui.helper).addClass('moving');
+            EditIMG(ui.helper); 
+        }
+    });
+    
+    $('.move').on('click',function(){
+           EditIMG(this); 
+    })
+    
 });
 
 
@@ -123,7 +135,39 @@ var strImgBase64
         
         
     }
-
+    
+    function getCid(){
+        return $('#'+currentID);
+    }
     function getRandom(min, max) { 
        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+
+    function ZoomIn(){
+            var ele = $(getCid());
+            var w = ele.width();
+            ele.css({ width : (w+10)});
+    }
+
+    function ZoomOut(){
+            var ele = $(getCid());
+            var w = ele.width();
+            ele.css({ width : (w-10)});
+    }
+    
+    function DelElem(){
+        $('#'+currentID).remove();
+        currentID = 0;
+        backMenu()
+    }
+
+    function EditIMG(ele){
+            $('#btn-grup-1').hide();
+            $('#btn-grup-2').show();
+            currentID = $(ele).attr('id');
+    }
+
+    function backMenu(){
+          $('#btn-grup-2').hide();
+          $('#btn-grup-1').show();
     }

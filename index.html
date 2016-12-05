@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/framework7.ios.min.css">
     <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="css/my-app.css"> 
+    <link rel="stylesheet" href="js/jquery-ui.css" />
+    <link rel="stylesheet" href="css/my-app.css">  
     
     <script type="text/javascript" src="cordova.js"></script>  
     <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
@@ -43,7 +43,7 @@
         <div class="navbar">
           <div class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="center sliding">PicMaker</div>
+            <div class="center sliding"><img width="30" height="30" src="icon.png"> PicMaker</div>
             <div class="right">
               <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
             </div>
@@ -62,10 +62,21 @@
         </div>
         <!-- Bottom Toolbar-->
         <div class="toolbar tabbar tabbar-labels">
-        <div class="toolbar-inner">
-                <a href="#view-1" data-panel="left" class="tab-link open-panel">  <i class="icon fa fa-magic"></i><span class="tabbar-label">Plantillas</span></a>
-                <a href="#" onclick="capturePhoto();" class="tab-link">  <i class="icon fa fa-camera"></i><span class="tabbar-label">Camara</span></a>
-                <a href="#" onclick="createImagen()" class="tab-link">  <i class="icon fa fa-picture-o"></i><span class="tabbar-label">Galería</span></a>
+        <div class="toolbar-inner" id="btn-grup-1">
+                    <a href="#view-1" data-panel="left" class="tab-link open-panel">  <i class="icon fa fa-magic"></i><span class="tabbar-label">Plantillas</span></a>
+                    <a href="#" onclick="capturePhoto();" class="tab-link">  <i class="icon fa fa-camera"></i><span class="tabbar-label">Camara</span></a>
+                    <a href="#" onclick="createImagen()" class="tab-link">  <i class="icon fa fa-picture-o"></i><span class="tabbar-label">Galería</span></a>
+                 
+        </div>
+            <div class="toolbar-inner" id="btn-grup-2" style="display:none;">
+                    <a href="#" onclick="ZoomIn();" class="tab-link ">  <i class="icon fa fa-search-plus"></i><span class="tabbar-label">Zoom +</span></a>
+                    <a href="#" onclick="ZoomOut();" class="tab-link">  <i class="icon fa fa-search-minus"></i><span class="tabbar-label">Zoom -</span></a>
+                    <a href="#" onclick="DelElem()" class="tab-link">  <i class="icon fa fa-trash"></i><span class="tabbar-label">Borrar</span></a>
+                
+                    <a href="#" onclick="backMenu()" class="tab-link">  <i class="icon  fa fa-check-circle"></i><span class="tabbar-label">OK</span></a>
+                
+                
+                 
         </div>
       </div>
       </div>

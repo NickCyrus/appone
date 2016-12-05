@@ -2,3 +2,11 @@
      height: auto;
      max-width: 50%;
 }
+
+.tabbar-labels a.link, .tabbar-labels a.tab-link {
+    padding-top: 11px;
+}
+
+.btn-grup{
+    width: 100%;
+}
