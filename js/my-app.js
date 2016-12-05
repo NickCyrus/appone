@@ -8,11 +8,11 @@ $(document).on('pagebeforeshow', '#index', function(){
         }
     });
     
-    $('.move').on('click',function(){
+    $('.move').live('click',function(){
            EditIMG(this); 
     })
     
-});
+}); 
 
 
 /iPad|iPhone|Android/.test( navigator.userAgent ) && (function( $ ) {
@@ -98,8 +98,14 @@ var strImgBase64
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64;
             alert(IdElementImg); 
-            jQuery('#'+IdElementImg).draggable()
-           // setTimeout(capturaScreen, 1000);
+            jQuery('#'+IdElementImg).draggable({
+                    drag: function( event, ui ) {
+                        $(ui.helper).addClass('moving');
+                        EditIMG(ui.helper); 
+                    }
+            })
+           
+            // setTimeout(capturaScreen, 1000);
              
     }
      
