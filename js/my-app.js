@@ -4,45 +4,61 @@ var myApp = new Framework7();
 // Export selectors engine
 var $$ = Dom7;
 
-// Add view
-var mainView = myApp.addView('.view-main', {
-    // Because we use fixed-through navbar we can enable dynamic navbar
-    dynamicNavbar: true
-});
+var pictureSource;    
+var destinationType;
+var strImgBase64
+    
+    document.addEventListener("deviceready",onDeviceReady,false);
+    
+    
+    function onDeviceReady() {
+        pictureSource   = navigator.camera.PictureSourceType;
+        destinationType = navigator.camera.DestinationType;
+    }
 
-// Callbacks to run specific code for specific pages, for example for About page:
-myApp.onPageInit('about', function (page) {
-    // run createContentPage func after link was clicked
-    $$('.create-page').on('click', function () {
-        createContentPage();
-    });
-});
+    function onPhotoDataSuccess(imageURI) { 
+            var imgProfile = document.getElementById('smallImage');
+            imgProfile.style.display = 'block';
+            strImgBase64   = "data:image/jpeg;base64,"+imageURI;
+            imgProfile.src = strImgBase64;
+            
+           // setTimeout(capturaScreen, 1000);
+            
+    }
+     
+    function capturePhoto() {
+        document.getElementById('botonera').style.display = 'none';
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, 
+                                    { quality: 50, 
+                                      destinationType: destinationType.DATA_URL,
+                                      correctOrientation: true 
+                                    });
+    }
 
-// Generate dynamic page
-var dynamicPageIndex = 0;
-function createContentPage() {
-	mainView.router.loadContent(
-        '<!-- Top Navbar-->' +
-        '<div class="navbar">' +
-        '  <div class="navbar-inner">' +
-        '    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>' +
-        '    <div class="center sliding">Dynamic Page ' + (++dynamicPageIndex) + '</div>' +
-        '  </div>' +
-        '</div>' +
-        '<div class="pages">' +
-        '  <!-- Page, data-page contains page name-->' +
-        '  <div data-page="dynamic-pages" class="page">' +
-        '    <!-- Scrollable page content-->' +
-        '    <div class="page-content">' +
-        '      <div class="content-block">' +
-        '        <div class="content-block-inner">' +
-        '          <p>Here is a dynamic page created on ' + new Date() + ' !</p>' +
-        '          <p>Go <a href="#" class="back">back</a> or go to <a href="services.html">Services</a>.</p>' +
-        '        </div>' +
-        '      </div>' +
-        '    </div>' +
-        '  </div>' +
-        '</div>'
-    );
-	return;
-}
+    function onFail(message) {
+      document.getElementById('botonera').style.display = 'block';    
+      alert('Failed because: ' + message);
+    }
+
+    function capturaScreen(){
+        var nameField = 'creandoapp-'+getRandom(1,999999999);
+        navigator.screenshot.URI(function(error,res){
+        // navigator.screenshot.save(function(error,res){  
+          if(error){ 
+            alert(error); 
+          }else{
+              strImgBase64 =  res.URI
+              var shareBtn = '<button onclick="capturePhoto();" id="btnCapture">Capture Photo</button><button id="btnShared" onclick="window.plugins.socialsharing.share(\'CreandoApp - Feliz navidad\', \'Esta es tu foto de navidad\', \''+strImgBase64+'\', null)">Compartir</button>';
+              
+              // document.getElementById('botonera').innerHTML = shareBtn;
+              // document.getElementById('botonera').style.display = 'block';
+              
+          }
+        },'jpg',100,nameField);
+        
+        
+    }
+
+    function getRandom(min, max) { 
+        return Math.random() * (max - min) + min;
+    }
