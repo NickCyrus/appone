@@ -20,14 +20,14 @@ var strImgBase64
             var imgProfile = document.getElementById('smallImage');
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
-            imgProfile.src = strImgBase64;
+            imgProfile.src = strImgBase64; 
             
            // setTimeout(capturaScreen, 1000);
             
     }
      
     function capturePhoto() {
-        document.getElementById('botonera').style.display = 'none';
+        // document.getElementById('botonera').style.display = 'none';
         navigator.camera.getPicture(onPhotoDataSuccess, onFail, 
                                     { quality: 50, 
                                       destinationType: destinationType.DATA_URL,
@@ -36,7 +36,7 @@ var strImgBase64
     }
 
     function onFail(message) {
-      document.getElementById('botonera').style.display = 'block';    
+      // document.getElementById('botonera').style.display = 'block';    
       alert('Failed because: ' + message);
     }
 
