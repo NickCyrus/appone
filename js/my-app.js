@@ -18,7 +18,7 @@ var strImgBase64
 
     function createImagen(){
         var ID =  'IMG-'+getRandom(0,999999999999);
-        $('#content-area').append('<img id="'+ID+'" style="display:none"/>');
+        $('#content-area').append('<img id="'+ID+'" style="display:none" class="add-image"/>');
         return ID;
     }
     
