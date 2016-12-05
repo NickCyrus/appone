@@ -1,5 +1,5 @@
 $(document).on('pagebeforeshow', '#index', function(){       
-    
+    $('#img').draggable();
 });
 
 
@@ -85,7 +85,7 @@ var strImgBase64
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64;
-            alert(jQuery('#'+IdElementImg));
+             
             jQuery('#'+IdElementImg).draggable()
            // setTimeout(capturaScreen, 1000);
              
