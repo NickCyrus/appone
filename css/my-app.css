@@ -1,6 +1,9 @@
 .add-image{
      height: auto;
      width: 320px;
+    position: absolute;
+    top: 5px;
+    left: 5px
 }
 
 .tabbar-labels a.link, .tabbar-labels a.tab-link {
