@@ -10,3 +10,7 @@
 .btn-grup{
     width: 100%;
 }
+
+.page-content{
+    overflow: hidden !important;
+}
