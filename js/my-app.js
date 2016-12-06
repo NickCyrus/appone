@@ -1,4 +1,5 @@
 var currentID = 0
+var zIndex = 0
 
 $(document).on('pagebeforeshow', '#index', function(){       
     $('.move').draggable({
@@ -92,10 +93,15 @@ var strImgBase64
         pictureSource   = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
     }
+    
+    function getzIindex(){
+        zIndex += 1
+        return parseInt(zIndex)
+    }
 
     function createImagen(){
         var ID =  'IMG-'+getRandom(0,999999999999);
-        $('#content-area').append('<img id="'+ID+'" style="display:none" class="add-image move"/>');
+        $('#content-area').append('<img id="'+ID+'" style="display:none;z-index:'+getzIindex()+'" class="add-image move" />');
         return ID;
     }
     
@@ -184,4 +190,19 @@ var strImgBase64
     function backMenu(){
           $('#btn-grup-2').hide();
           $('#btn-grup-1').show();
+    }
+
+    function aumentarzIndex(I){
+        if ( zIndex < I){
+                zIndex = I
+        }
+        
+    }
+
+    function SubirCapa(){
+         var ele   = $(getCid());
+         nextzIndes =   parseInt($('.move').css('z-index')) + 1;
+         alert(nextzIndes);
+         aumentarzIndex(nextzIndes)
+         ele.css('z-index', nextzIndes );
     }
