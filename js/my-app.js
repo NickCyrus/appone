@@ -8,9 +8,17 @@ $(document).on('pagebeforeshow', '#index', function(){
         }
     });
     
-    $('.move').live('click',function(){
+    $('.move').on('click',function(){
            EditIMG(this); 
     })
+    
+    /* $('.ZoomIn').on('mousedown',function(){
+            ZoomIn() 
+     })
+     
+     $('.ZoomOut').on('mousedown',function(){
+            ZoomOut() 
+     })*/
     
 }); 
 
