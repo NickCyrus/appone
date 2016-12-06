@@ -111,7 +111,6 @@ var strImgBase64
             imgProfile.style.display = 'block';
             strImgBase64   = "data:image/jpeg;base64,"+imageURI;
             imgProfile.src = strImgBase64;
-            alert(IdElementImg); 
             jQuery('#'+IdElementImg).draggable({
                     drag: function( event, ui ) {
                         $(ui.helper).addClass('moving');
@@ -202,7 +201,6 @@ var strImgBase64
     function SubirCapa(){
          var ele   = $(getCid());
          nextzIndes =   parseInt($('.move').css('z-index')) + 1;
-         alert(nextzIndes);
          aumentarzIndex(nextzIndes)
          ele.css('z-index', nextzIndes );
     }
