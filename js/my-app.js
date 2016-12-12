@@ -90,8 +90,10 @@ var strImgBase64
     
     
     function onDeviceReady() {
+        cordova.plugins.backgroundMode.enable();
         pictureSource   = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
+        alert('Update')
     }
     
     function getzIindex(){
