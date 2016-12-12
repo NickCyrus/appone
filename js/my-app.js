@@ -90,6 +90,7 @@ var strImgBase64
     
     
     function onDeviceReady() {
+        cordova.plugins.backgroundMode.setDefaults({ silent: true, text:'PicMaker'})
         cordova.plugins.backgroundMode.enable();
         pictureSource   = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
