@@ -92,6 +92,7 @@ var strImgBase64
     function onDeviceReady() {
         pictureSource   = navigator.camera.PictureSourceType;
         destinationType = navigator.camera.DestinationType;
+        screen.lockOrientation('landscape');
     }
     
     function getzIindex(){
